@@ -1,0 +1,10 @@
+name, sell_in, price
+Medium Coverage, 10, 20
+Full Coverage, 2, 0
+Low Coverage, 5, 7
+Mega Coverage, 0, 80
+Mega Coverage, -1, 80
+Special Full Coverage, 15, 20
+Special Full Coverage, 10, 49
+Special Full Coverage, 5, 49
+Super Sale, 3, 6
