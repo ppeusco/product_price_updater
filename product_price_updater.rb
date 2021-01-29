@@ -1,6 +1,5 @@
-require 'csv'
+require 'byebug'
+require "./services/products_parser"
 
 products_csv = "data/files/products.csv"
-CSV.foreach(products_csv, headers: true, header_converters: :symbol, skip_blanks: true) do |row|
-  puts row[0]
-end
+products = ProductsParser.call(products_csv)
