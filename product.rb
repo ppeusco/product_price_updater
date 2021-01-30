@@ -8,5 +8,9 @@ class Product
     @price = price
   end
   
-  def update_price; end
+  def update_price(_day)
+    return if @price.zero?
+    return if @price == 50
+    
+  end
 end
