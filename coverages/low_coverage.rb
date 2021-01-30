@@ -1,5 +1,7 @@
+require_relative "tools"
 module Coverages
   class LowCoverage < Product
+    include Tools
     
     def update_price
       decrease_price(1)

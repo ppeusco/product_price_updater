@@ -1,5 +1,8 @@
+require_relative "tools"
 module Coverages
   class SuperSale < Product
+    include Tools
+
     def update_price
       decrease_price(2)
       decrease_sell_in
