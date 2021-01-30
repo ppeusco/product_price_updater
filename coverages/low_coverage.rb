@@ -1,12 +1,10 @@
 module Coverages
-  class LowCoverages < Product
+  class LowCoverage < Product
     
     def update_price
-      super
-      @price -= 1
-      @sell_in -= 1
-      
-      @price -= 1 if @sell_in.negative? && @price.positive?
+      decrease_price(1)
+      decrease_sell_in
+      decrease_price(1) if @sell_in.negative?
     end
   end
 end

@@ -1,3 +1,5 @@
 module Coverages
-  class MegaCoverages < Product; end
+  class MegaCoverage < Product
+    def update_price; end
+  end
 end

@@ -9,13 +9,11 @@ class ProductsPrinter < ApplicationService
   end
   
   def call
-    @days.times do |i|
-      puts "---------- day #{i}----------"
-      puts "name sell_in price"
-      
-      @products.each do |p|  
-        puts "#{p.name}, #{p.sell_in}, #{p.price}"
-      end
+    puts "---------- day #{@days}----------"
+    puts "name sell_in price"
+
+    @products.each do |p|  
+      puts "#{p.name}, #{p.sell_in}, #{p.price}"
     end
   end
 end
