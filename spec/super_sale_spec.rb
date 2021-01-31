@@ -1,38 +1,42 @@
+# frozen_string_literal: true
+
 # spec/super_sale_spec.rb
+
 require './product'
-require "./coverages/super_sale"
+require './coverages/super_sale'
 
-describe Coverages::SuperSale do 
-  describe ".update_price" do
-    before :each do
-      @super_sale_coverage = Coverages::SuperSale.new("Super Sale", 10, 20)
-      @super_sale_coverage.update_price
+describe Coverages::SuperSale do
+  describe '.update_price' do
+    before do
+      super_sale.update_price
     end
 
-    context "sell_in is positive" do
-      it "decrease price by 2" do
-        expect(@super_sale_coverage.price).to eq(18)
+    context 'when the sell_in is positive' do
+      let(:super_sale) { described_class.new('Super Sale', 10, 20) }
+
+      it 'decrease price by 2' do
+        expect(super_sale.price).to eq(18)
       end
 
-      it "decrease sell_in by 1" do
-        expect(@super_sale_coverage.sell_in).to eq(9)
-      end
-    end
-
-    context "sell_in is negative" do
-      it "decrease price by 2" do
-        @other_super_sale_coverage = Coverages::SuperSale.new("Super Sale", -10, 20)
-        @other_super_sale_coverage.update_price
-        expect(@other_super_sale_coverage.price).to eq(16)
-        expect(@other_super_sale_coverage.sell_in).to eq(-11)
+      it 'decrease sell_in by 1' do
+        expect(super_sale.sell_in).to eq(9)
       end
     end
 
-    context "The price can never be less than zero" do
-      it "It does not increase the price any more when it reaches 50" do
-        50.times { @super_sale_coverage.update_price }
-        expect(@super_sale_coverage.price).to eq(0)
-        expect(@super_sale_coverage.sell_in).to eq(-41)
+    context 'when the sell_in is negative' do
+      let(:super_sale) { described_class.new('Super Sale', -10, 20) }
+
+      it 'decrease price by 2' do
+        expect(super_sale.price).to eq(16)
+      end
+    end
+
+    context 'when the price can never be less than zero' do
+      let(:super_sale) { described_class.new('Super Sale', 10, 20) }
+
+      it 'does not increase the price any more when it reaches 50' do
+        50.times { super_sale.update_price }
+        expect(super_sale.price).to eq(0)
       end
     end
   end
