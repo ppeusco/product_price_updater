@@ -1,5 +1,8 @@
-require_relative "tools"
+# frozen_string_literal: true
+
+require_relative 'tools'
 module Coverages
+  # Class representing a Super Sale object
   class SuperSale < Product
     include Tools
 

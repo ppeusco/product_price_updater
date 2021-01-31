@@ -1,23 +1,27 @@
-require "csv"
-require "./services/application_service"
-require "./product"
-require "./coverages/full_coverage"
-require "./coverages/low_coverage"
-require "./coverages/medium_coverage"
-require "./coverages/mega_coverage"
-require "./coverages/special_full_coverage"
-require "./coverages/super_sale"
+# frozen_string_literal: true
 
+require 'csv'
+require './services/application_service'
+require './product'
+require './coverages/full_coverage'
+require './coverages/low_coverage'
+require './coverages/medium_coverage'
+require './coverages/mega_coverage'
+require './coverages/special_full_coverage'
+require './coverages/super_sale'
+
+# Parse a .csv file with product information and returns an array of Product objects.
 class ProductsParser < ApplicationService
   def initialize(file_name)
+    super()
     @file_name = file_name
     @products = []
   end
-  
+
   def call
     CSV.foreach(@file_name, headers: true, header_converters: :symbol, skip_blanks: true) do |row|
       row = row.to_hash
-      klass_name = row[:name].gsub(/\s+/, "")
+      klass_name = row[:name].gsub(/\s+/, '')
 
       @products << Coverages.const_get(klass_name).new(
         row[:name].strip,
