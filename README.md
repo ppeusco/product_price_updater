@@ -9,4 +9,5 @@ To run the test:
 
 If you don't have Ruby installed, you can use Docker by doing:
 > docker build -t my-ruby-app .
+
 > docker run -it --name my-running-script my-ruby-app
