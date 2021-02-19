@@ -9,4 +9,8 @@ class Product
     @sell_in = sell_in
     @price = price
   end
+
+  def to_s
+    "#{name}, #{sell_in}, #{price}"
+  end
 end
