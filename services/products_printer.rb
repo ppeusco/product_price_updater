@@ -14,6 +14,6 @@ class ProductsPrinter < ApplicationService
   def call
     puts "---------- day #{@days}----------"
     puts 'name sell_in price'
-    @products.each { |p| puts p }
+    @products.each { |product| puts product }
   end
 end
