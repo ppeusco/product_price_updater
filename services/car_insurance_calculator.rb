@@ -10,8 +10,8 @@ class CarInsuranceCalculator < ApplicationService
   end
 
   def call
-    (@days + 1).times do |i|
-      ProductsPrinter.call(@products, i)
+    (@days + 1).times do |day|
+      ProductsPrinter.call(@products, day)
       @products.each(&:update_price)
     end
   end
